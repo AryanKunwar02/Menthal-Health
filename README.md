@@ -115,7 +115,7 @@ def retrieve():
     con = int(input("Do you want to retrieve any more details? \n1. Yes \n2. No\n"))
 
 
-print("\t~Welcome to Health care Management System~")
+print("\tWelcome to Health care Management System")
 ch = int(input("What do you want to do? \n1. Log \n2. Retrieve\n"))
 if ch == 1:
     log()
