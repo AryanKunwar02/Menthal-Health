@@ -7,95 +7,119 @@ Mental health is the absence of mental illness or a state of psychological well-
 #Theme:Mental Health
 
 
-def getdate():
+
+def gettime():
     import datetime
     return datetime.datetime.now()
 
-def take(k):
-    if k==1:
-        c=int(input("Enter 1 for Exercise and 2 for Diet"))
-        if c==1:
-            value=input("Type Here...\n")
-            with open("harryexercise.txt", "a") as f:
-                
-                f.write(str(getdate()) + ":" + value + "\n")   
-                print("Successfully Updated")
 
-        elif c==2:
-            value=input("Type Here...\n")
-            with open("harrydiet.txt", "a") as f:
-                
-                f.write(str(getdate()) + ":" + value + "\n")   
-                print("Successfully Updated")
+def log():
+    print("Choose your client")
+    client = int(input("1. Harry \n2. Rohan \n3. Hammad\n"))
+    con = 1
+    if client == 1:
+        while con == 1:
+            print("What do you want to log for Harry?\n")
+            choice = int(input("1. Diet \n2. Activity\n"))
+            if choice == 1:
+                f = open("harry diet.txt", "a")
+                data = input("Enter what has Harry Eaten?\n")
+                f.write(str([str(gettime())]) + "  " + data + "\n")
+                f.close()
 
-    elif k==2:
-        c=int(input("Enter 1 for Exercise and 2 for Diet"))
-        if c == 1:
-            value = input("Type Here...\n")
-            with open("rohanexercise.txt", "a") as f:
-                
-                f.write(str(getdate()) + ":" + value + "\n") 
-                print("Successfully Updated")
+            else:
+                f = open("harry exercise.txt", "a")
+                data = input("How much time has Harry worked out?\n")
+                f.write(str([str(gettime())]) + "  " + data + "\n")
+                f.close()
+            con = int(input("Do you want to log more for Harry? \n1. Yes \n2. No\n"))
 
-        elif c == 2:
-            value = input("Type Here...\n")
-            with open("rohandiet.txt", "a") as f:
-                
-                f.write(str(getdate()) + ":" + value + "\n")  
-                print("Successfully Updated")
+    elif client == 2:
+        while con == 1:
+            print("What do you want to log for Rohan?\n")
+            choice = int(input("1. Diet \n2. Activity\n"))
+            if choice == 1:
+                f = open("rohan diet.txt", "a")
+                data = input("Enter what has Rohan Eaten?\n")
+                f.write(str([str(gettime())]) + "  " + data + "\n")
+                f.close()
 
-    elif k==3:
-        c = int(input("Enter 1 for Exercise and 2 for Diet"))
-        if c == 1:
-            value = input("Type Here...\n")
-            with open("hammadexercise.txt", "a") as f:
-                
-                f.write(str(getdate()) + ":" + value + "\n") 
-                print("Successfully Updated")
+            else:
+                f = open("rohan exercise.txt", "a")
+                data = input("How much time has Rohan worked out?\n")
+                f.write(str([str(gettime())]) + "  " + data + "\n")
+                f.close()
+            con = int(input("Do you want to log more for Rohan? \n1. Yes \n2. No\n"))
 
-        elif c == 2:
-            value = input("Type Here...\n")
-            with open("hammaddiet.txt", "a") as f:
-                
-                f.write(str(getdate()) + ":" + value + "\n")  
-                print("Successfully Updated")
-    else:
-        print("Please enter valid input: 1-Harry, 2-Rohan, 3-Hammad")
+    elif client == 3:
+        while con == 1:
+            print("What do you want to log for Hammad?\n")
+            choice = int(input("1. Diet \n2. Activity\n"))
+            if choice == 1:
+                f = open("hammad diet.txt", "a")
+                data = input("Enter what has Hammad Eaten?\n")
+                f.write(str([str(gettime())]) + "  " + data + "\n")
+                f.close()
 
-def retrieve(k):
-    if k==1:
-        c = int(input("Enter 1 for Exercise and 2 for Diet"))
-        if c==1:
-            with open("harryexercise.txt") as g:
-                print(g.read())
-        elif c==2:
-            with open("harrydiet.txt") as g:
-                print(g.read())
-    elif k==2:
-        c = int(input("Enter 1 for Exercise and 2 for Diet"))
-        if c == 1:
-            with open("rohanexercise.txt") as g:
-                print(g.read())
-        elif c == 2:
-            with open("rohandiet.txt") as g:
-                print(g.read())
+            else:
+                f = open("hammad exercise.txt", "a")
+                data = input("How much time has Hammad worked out?\n")
+                f.write(str([str(gettime())]) + "  " + data + "\n")
+                f.close()
+            con = int(input("Do you want to log more for Hammad? \n1. Yes \n2. No\n"))
 
-    elif k==3:
-        c = int(input("Enter 1 for Exercise and 2 for Diet"))
-        if c == 1:
-            with open("hammadexercise.txt") as g:
-                print(g.read())
-        elif c == 2:
-            with open("hammaddiet.txt") as g:
-                print(g.read())
-    else:
-        print("Please enter valid input: 1-Harry, 2-Rohan, 3-Hammad")
 
-print("Welcome to Health Management System:")
-a=int(input("Enter 1 to log the value and 2 for retrieve"))
-if a==1:
-    b=int(input("Please enter: 1-Harry, 2-Rohan, 3-Hammad"))
-    take(b)
+def retrieve():
+    con = 1
+    while con == 1:
+        print("Choose your client")
+        client = int(input("1. Harry \n2. Rohan \n3. Hammad\n"))
+        if client == 1:
+            print("What do you want to retrieve for Harry?\n")
+            choice = int(input("1. Diet \n2. Activity\n"))
+            if choice == 1:
+                f = open("harry diet.txt", "r")
+                print(f.readlines())
+                f.close()
+
+            else:
+                f = open("harry exercise.txt", "r")
+                print(f.readlines())
+                f.close()
+
+        elif client == 2:
+            print("What do you want to retrieve for Rohan?\n")
+            choice = int(input("1. Diet \n2. Activity\n"))
+            if choice == 1:
+                f = open("rohan diet.txt", "r")
+                print(f.readlines())
+                f.close()
+
+            else:
+                f = open("rohan exercise.txt", "r")
+                print(f.readlines())
+                f.close()
+
+        elif client == 3:
+            print("What do you want to retrieve for Hammad?\n")
+            choice = int(input("1. Diet \n2. Activity\n"))
+            if choice == 1:
+                f = open("hammad diet.txt", "r")
+                print(f.readlines())
+                f.close()
+
+            else:
+                f = open("hammad exercise.txt", "r")
+                print(f.readlines())
+                f.close()
+    con = int(input("Do you want to retrieve any more details? \n1. Yes \n2. No\n"))
+
+
+print("\t~Welcome to Health care Management System~")
+ch = int(input("What do you want to do? \n1. Log \n2. Retrieve\n"))
+if ch == 1:
+    log()
+elif ch == 2:
+    retrieve()
 else:
-    b=int(input("Please enter: 1-Harry, 2-Rohan, 3-Hammad"))
-    retrieve(b)
+    print("Wrong Input. Please try again.\n")
